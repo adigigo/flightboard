@@ -52,4 +52,6 @@ Himage = Himage.resize((800,480),Image.LANCZOS)
 Himage = Himage.convert("1",dither=Image.NONE)
 epd.display(epd.getbuffer(Himage))
 
+epd.sleep()
+
 sys.exit(0)
