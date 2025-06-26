@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+
+    html,body {
+      width: 800px;
+      height: 480px;
+      margin: 0;
+      padding:0;
+      overflow: hidden;
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: white;
+      color: black;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      top: -5px;
+    }
+
+    .main {
+      flex: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      text-align: center;
+      padding-left: 20px;
+    }
+
+    .counter {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centers all blocks vertically */
+    align-items: space-evenly; /* aligns blocks to the right */
+    padding-right: 24px; /* adjust this to increase right padding */
+    gap: 16px; /* reduce space between blocks (was space-evenly) */
+    }
+
+    .counter-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .counter-number {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .counter-label {
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header img {
+      height: 50px;
+      width: auto;
+    }
+
+    .flight-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .flight-info div {
+      margin: 2px 0;
+    }
+
+    .route {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 22px;
+      gap: 10px;
+    }
+
+    .airport-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .airport {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plane-icon {
+      font-size: 72px;
+      line-height: 1;
+    }
+
+    .details {
+      font-size: 20px;
+      line-height: 1.6;
+      position: relative;
+      top: -2px;
+    }
+
+    .aircraft-badge {
+        margin-top: 10px;
+        padding: 6px 12px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        font-size: 20px;
+        text-align: center;
+        position: relative;
+        top: -2px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="header">
+      <img src= "{{ airline_icao }}" alt="">
+      <div class="flight-info">
+        <div>{{ airline }}</div>
+        <div>{{ flight_no }}</div>
+      </div>
+    </div>
+
+    <div class="route">
+      <div class="airport-row">
+        <div class="airport">
+          <div>{{ o_name }}( {{ o_code }} )</div>
+          <div class="time">Dep: {{ dep_time }} UTC</div>
+        </div>
+        <div class="plane-icon">✈</div>
+        <div class="airport">
+          <div>{{ d_name }}( {{ d_code }} )</div>
+          <div class="time">Arr: {{ arr_time }} UTC</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="details">
+        <div class="aircraft-badge">
+            <strong>{{ aircraft }}</strong>
+        </div>
+    </div>
+  </div>
+
+  <div class="counter">
+    <div class="counter-block">
+      <div class="counter-number">{{ altitude }}</div>
+      <div class="counter-label">feet</div>
+    </div>
+    <div class="counter-block">
+      <div class="counter-number">{{ heading }}°</div>
+      <div class="counter-label">heading</div>
+    </div>
+    <div class="counter-block">
+      <div class="counter-number">{{ ground_speed }}</div>
+      <div class="counter-label">knots</div>
+    </div>
+  </div>
+
+
+</body>
+</html>
