@@ -3,9 +3,11 @@ import datetime
 from FlightRadar24 import FlightRadar24API
 import sqlite3
 from contextlib import closing
+import os
 
 import config
 
+ROOT_DIR = os.path.dirname(os.path.abspath(__name__))
 
 def start_fr():
     
@@ -39,7 +41,7 @@ def get_flight():
     # get a list of flights already read flights
     # so that we don't see the same flight again
 
-    with closing(sqlite3.connect("flights.db")) as connection:
+    with closing(sqlite3.connect(f"{ROOT_DIR}/Projects/flightboard/flights.db")) as connection:
         with closing(connection.cursor()) as cursor:
             rows = cursor.execute("select * from flights").fetchall()
             existing_ids = [id for (id,) in rows]
@@ -57,7 +59,7 @@ def get_flight():
             break
     
     # now that we choose a flight - write to the db first
-    with closing(sqlite3.connect("flights.db")) as connection:
+    with closing(sqlite3.connect(f"{ROOT_DIR}/Projects/flightboard/flights.db")) as connection:
         with closing(connection.cursor()) as cursor:
             cursor.execute("INSERT INTO flights VALUES (?)",(chosen_flight.id,))
         connection.commit()
