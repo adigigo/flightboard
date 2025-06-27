@@ -104,8 +104,13 @@
       align-items: center;
     }
 
+    .icao_code {
+      font-size:45px;
+      font-weight: bold;
+    }
+
     .plane-icon {
-      font-size: 72px;
+      font-size: 80px;
       line-height: 1;
     }
 
@@ -113,7 +118,7 @@
       font-size: 20px;
       line-height: 1.6;
       position: relative;
-      top: -2px;
+      top: -8px;
     }
 
     .aircraft-badge {
@@ -126,7 +131,7 @@
         font-size: 20px;
         text-align: center;
         position: relative;
-        top: -2px;
+        top: -8px;
     }
 
   </style>
@@ -144,12 +149,14 @@
     <div class="route">
       <div class="airport-row">
         <div class="airport">
-          <div>{{ o_name }} ( {{ o_code }} )</div>
+          <div class = "icao_code">{{ o_code }}</div>
+          <div>{{ o_name }}</div>
           <div class="time">Dep: {{ dep_time }} UTC</div>
         </div>
         <div class="plane-icon">✈</div>
         <div class="airport">
-          <div>{{ d_name }} ( {{ d_code }} )</div>
+          <div class = "icao_code">{{ d_code }}</div>
+          <div>{{ d_name }}</div>
           <div class="time">Arr: {{ arr_time }} UTC</div>
         </div>
       </div>
