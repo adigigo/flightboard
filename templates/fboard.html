@@ -74,7 +74,7 @@
     }
 
     .scaled-image{
-      transform: scale(1.5)
+      transform: scale(1.35)
     }
 
     .flight-info {
@@ -85,8 +85,8 @@
     }
 
     .flight-info div {
-      margin: 2px 0;
-      font-size: 30px;
+      margin: 4px 9px;
+      font-size: 25px;
     }
 
     .route {
@@ -146,7 +146,7 @@
 <body>
   <div class="main">
     <div class="header">
-      <img src= "{{ airline_icao }}" alt="",class="scaled-image">
+      <img src= "{{ airline_icao }}" alt="" class="scaled-image">
       <div class="flight-info">
         <div>{{ airline }}</div>
         <div>{{ flight_no }}</div>
