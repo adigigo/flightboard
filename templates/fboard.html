@@ -73,6 +73,10 @@
       width: auto;
     }
 
+    .scaled-image{
+      transform: scale(1.5)
+    }
+
     .flight-info {
       display: flex;
       flex-direction: column;
@@ -142,7 +146,7 @@
 <body>
   <div class="main">
     <div class="header">
-      <img src= "{{ airline_icao }}" alt="">
+      <img src= "{{ airline_icao }}" alt="",class="scaled-image">
       <div class="flight-info">
         <div>{{ airline }}</div>
         <div>{{ flight_no }}</div>
